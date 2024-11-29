@@ -1,0 +1,32 @@
+appId: com.remote-desktop.app
+productName: remote-desktop
+directories:
+  output: dist
+files:
+  - "out/**/*"
+  - "resource/*"
+asarUnpack:
+  - resources/*
+win:
+  target: nsis
+  icon: resources/icon.png
+nsis:
+  artifactName: ${name}-setup.${ext}
+  shortcutName: ${productName}
+  uninstallDisplayName: ${productName}
+  createDesktopShortcut: true
+  allowToChangeInstallationDirectory: true
+  allowElevation: true
+  oneClick: false
+  perMachine: true
+mac:
+  target: dmg
+  icon: resources/icon.png
+dmg:
+  title: ${name}.${ext}
+linux:
+  target: deb
+  icon: resources/icon.png
+deb:
+  artifactName: ${name}.${ext}
+npmRebuild: false
